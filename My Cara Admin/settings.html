@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY CARA ADMIN - Settings</title>
+    <link rel="icon" type="image/x-icon" href="img/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="logo">
+            <h2>MY CARA ADMIN</h2>
+            <i id="sidebar-close" class='bx bx-x'></i>
+        </div>
+        <ul class="side-menu">
+            <li><a href="index.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="products.html"><i class='bx bxs-shopping-bag'></i> Products</a></li>
+            <li><a href="orders.html"><i class='bx bxs-receipt'></i> Orders</a></li>
+            <li><a href="customers.html"><i class='bx bxs-user'></i> Customers</a></li>
+            <li><a href="blog.html"><i class='bx bxs-news'></i> Blog</a></li>
+            <li><a href="settings.html" class="active"><i class='bx bxs-cog'></i> Settings</a></li>
+        </ul>
+        <div class="logout">
+            <a href="https://my-cara.netlify.app/"><i class='bx bx-log-out'></i> Back to Store</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Top Header -->
+        <header id="admin-header">
+            <div class="header-left">
+                <i id="sidebar-toggle" class='bx bx-menu'></i>
+                <h3>Settings</h3>
+            </div>
+            <div class="header-right">
+                <div class="admin-profile">
+                    <img src="img/people/MJ.JPG" alt="Admin">
+                    <span>Admin User</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="content">
+            <div class="settings-tabs">
+                <div class="tab-nav">
+                    <button class="tab-link active" data-tab="general">General</button>
+                    <button class="tab-link" data-tab="store">Store Info</button>
+                    <button class="tab-link" data-tab="shipping">Shipping</button>
+                    <button class="tab-link" data-tab="payment">Payment</button>
+                    <button class="tab-link" data-tab="notifications">Notifications</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- General Settings -->
+                    <div id="general" class="tab-pane active">
+                        <h3>General Settings</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Store Name</label>
+                                <input type="text" value="Aghara Shop">
+                            </div>
+                            <div class="form-group">
+                                <label>Store Description</label>
+                                <textarea>Aghara Shop is a reputable clothing ecommerce website that has been operating since 2025. With over two decades of experience in the fashion industry.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Store Logo</label>
+                                <div class="file-upload">
+                                    <input type="file" accept="image/*">
+                                    <div class="upload-area">
+                                        <img src="img/logo.png" alt="Current Logo">
+                                        <p>Click to change logo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Store Currency</label>
+                                <select>
+                                    <option>Indian Rupee (₹)</option>
+                                    <option>US Dollar ($)</option>
+                                    <option>Euro (€)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Timezone</label>
+                                <select>
+                                    <option>Asia/Kolkata (IST)</option>
+                                    <option>UTC</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Store Info Settings -->
+                    <div id="store" class="tab-pane">
+                        <h3>Store Information</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Store Address</label>
+                                <input type="text" value="Arnitimba, Wankaner,Gujarat - 363621">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" value="+91 8488877692 / (+91) 88668 77692">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" value="agharamitul@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Business Hours</label>
+                                <input type="text" value="10:00 - 18:00, Mon - Sat">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Shipping Settings -->
+                    <div id="shipping" class="tab-pane">
+                        <h3>Shipping Settings</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Enable Free Shipping</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>Free Shipping Minimum Order</label>
+                                <input type="number" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Shipping Zones</label>
+                                <div class="shipping-zones">
+                                    <div class="zone-item">
+                                        <span>Domestic (India)</span>
+                                        <span>Free Shipping</span>
+                                        <button class="btn-edit"><i class='bx bx-edit'></i></button>
+                                    </div>
+                                    <div class="zone-item">
+                                        <span>International</span>
+                                        <span>₹500</span>
+                                        <button class="btn-edit"><i class='bx bx-edit'></i></button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-secondary">Add Shipping Zone</button>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Add more tab panes as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

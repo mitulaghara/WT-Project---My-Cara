@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aghara Shop - Login</title>
+  <link rel="icon" type="image/x-icon" href="./img/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Spartan", sans-serif;
+        }
+
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Global Styles */
+
+        h1 {
+          font-size: 50px;
+          line-height: 64px;
+          color: #222;
+        }
+
+        h2 {
+          font-size: 46px;
+          line-height: 54px;
+          color: #222;
+        }
+
+        h4 {
+          font-size: 20px;
+          color: #222;
+        }
+
+        h6 {
+          font-weight: 700;
+          font-size: 12px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #465b52;
+          margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+          padding: 40px 80px;
+        }
+
+        .section-m1 {
+          margin: 40px 0;
+        }
+
+        button.normal {
+          font-size: 14px;
+          font-weight: 600;
+          color: #000;
+          padding: 15px 30px;
+          border-radius: 4px;
+          background-color: #fff;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          transition: 0.2s;
+        }
+
+        button.white {
+          font-size: 13px;
+          font-weight: 600;
+          color: #fff;
+          padding: 11px 18px;
+          background-color: transparent;
+          cursor: pointer;
+          border: 1px solid #fff;
+          outline: none;
+          transition: 0.2s;
+        }
+
+        body {
+          width: 100%;
+        }
+
+        /* Header Style */
+
+        #header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px 80px;
+          background: #E3E6F3;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+          z-index: 999;
+          position: sticky;
+          top: 0;
+          left: 0;
+        }
+
+        #navbar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #navbar li {
+          list-style: none;
+          padding: 0 20px;
+          position: relative;
+        }
+
+        #navbar li a {
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 600;
+          color: #1a1a1a;
+          transition: 0.3s ease;
+        }
+
+        #navbar li a:hover,
+        #navbar li a.active{
+          color: #088178;
+        }
+
+        #navbar li a.active::after,
+        #navbar li a:hover::after{
+          content: "";
+          width: 30%;
+          height: 2px;
+          background: #088178;
+          position: absolute;
+          bottom: -4px;
+          left: 20px;
+        }
+
+        #mobile {
+          display: none;
+          align-items: center;
+        }
+
+        #close {
+          display: none;
+        }
+
+        /* Auth Pages */
+
+        .auth-page {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 80vh;
+          padding: 80px 0;
+          background: linear-gradient(180deg, #fbfdff 0%, #f6f9fb 100%);
+        }
+
+        .auth-container {
+          max-width: 420px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 40px;
+          border: 1px solid #e6eef0;
+          border-radius: 8px;
+          background: #fff;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .auth-container h2 {
+          text-align: center;
+          margin-bottom: 25px;
+          color: #222;
+          font-size: 28px;
+        }
+
+        .auth-container form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .auth-container input {
+          padding: 14px 16px;
+          border: 1px solid #e1e1e1;
+          border-radius: 6px;
+          outline: none;
+          font-size: 15px;
+          width: 100%;
+        }
+
+        .auth-container input:focus {
+          border-color: #088178;
+        }
+
+        .auth-container button[type="submit"] {
+          padding: 14px;
+          background-color: #088178;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: 700;
+          font-size: 16px;
+          transition: background-color 0.3s;
+        }
+
+        .auth-container button[type="submit"]:hover {
+          background-color: #066b63;
+        }
+
+        .auth-note { 
+          text-align: center; 
+          font-size: 14px; 
+          color: #666; 
+          margin-top: 20px;
+        }
+
+        .auth-note a {
+          color: #088178;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .auth-note a:hover {
+          text-decoration: underline;
+        }
+
+        .auth-error { 
+          color: #d9534f; 
+          font-size: 14px; 
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        /* Footer */
+
+        footer {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        footer .col {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+
+        footer .logo {
+          margin-bottom: 30px;
+        }
+
+        footer h4 {
+          font-size: 14px;
+          padding-bottom: 20px;
+        }
+
+        footer p {
+          font-size: 13px;
+          margin: 0 0 8px 0;
+        }
+
+        footer a {
+          font-size: 13px;
+          text-decoration: none;
+          color: #222;
+          margin-bottom: 10px;
+        }
+
+        footer .follow {
+          margin-top: 20px;
+        }
+
+        footer .follow i {
+          color: #465b52;
+          padding-right: 4px;
+          cursor: pointer;
+        }
+
+        footer .follow h4 {
+          padding-bottom: 10px;
+        }
+
+        footer .install .row img{
+          border: 1px solid #088178;
+          border-radius: 6px;
+        }
+
+        footer .install img {
+          margin: 10px 0 15px 0;
+          cursor: pointer; 
+        }
+
+        footer .follow i:hover,
+        footer a:hover {
+          color: #088178;
+        }
+
+        footer .copyright {
+          width: 100%;
+          text-align: center;
+        }
+
+        /* Media Query */
+
+        @media (max-width:820px) {
+          .section-p1 {
+            padding: 40px;
+          }
+           
+          #navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: fixed;
+            top: 0;
+            right: -300px;
+            height: 100vh;
+            width: 300px;
+            background-color: #E3E6F3;
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+            padding: 80px 0 0 10px;
+            transition: 0.3s;
+          }
+
+          #navbar.active {
+            right: 0px;
+          }
+
+          #navbar li {
+            margin-bottom: 25px;
+          }
+
+          #mobile {
+            display: flex;
+            align-items: center;
+          }
+
+          #mobile i {
+            color: #1a1a1a;
+            font-size: 24px;
+            padding-left: 20px;
+          }
+
+          #close {
+            display: initial;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #222;
+            font-size: 24px;
+          }
+
+          #lg-bag {
+            display: none;
+          }
+
+          /* Make navbar anchors full-width and easier to tap on mobile */
+          #navbar li a {
+            display: block;
+            width: 100%;
+            padding: 12px 10px;
+          }
+
+          .auth-container {
+            padding: 30px;
+            margin: 0 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-p1 {
+            padding: 20px;
+          }
+          
+          #header {
+            padding: 10px 30px;
+          }
+          
+          .auth-container {
+            padding: 25px 20px;
+            margin: 0 15px;
+          }
+          
+          .auth-container h2 {
+            font-size: 24px;
+          }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt="Aghara Shop"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html">Cart <i class='bx bx-shopping-bag'></i></a></li>
+                <li><a class="active" href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <a href="#" id="close"><i class='bx bx-x'></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class='bx bx-shopping-bag'></i></a>
+            <i id="bar" class='bx bx-menu'></i>
+        </div>
+    </section>
+
+    <section class="auth-page">
+        <div class="auth-container">
+            <h2>Login to Your Account</h2>
+      <form id="loginForm">
+        <input id="loginEmail" name="email" type="email" placeholder="Email Address" required>
+        <div id="loginEmailError" class="auth-error" aria-live="polite"></div>
+        <input id="loginPassword" name="password" type="password" placeholder="Password" required>
+        <div id="loginPasswordError" class="auth-error" aria-live="polite"></div>
+        <button type="submit">Login</button>
+        <div class="auth-note">
+          Don't have an account? <a href="register.html">Register here</a>
+        </div>
+        <div id="loginError" class="auth-error" style="display: none;">
+          Invalid email or password. Please try again.
+        </div>
+      </form>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="./img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Arnitimba, Wankaner,Gujarat - 363621</p>
+            <p><strong>Phone:</strong> +01 2222 345 / (+91) 84888 77692</p>
+            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class='bx bxl-facebook'></i>
+                    <i class='bx bxl-twitter'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-pinterest-alt'></i>
+                    <i class='bx bxl-youtube'></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="./img/pay/app.jpg" alt="">
+                <img src="./img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways</p>
+            <img src="./img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2025 Aghara Mitul</p>
+        </div>
+    </footer>
+
+  <!-- Firebase SDK (v8) + config. Replace values in firebase-config.js with your project config -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="./firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

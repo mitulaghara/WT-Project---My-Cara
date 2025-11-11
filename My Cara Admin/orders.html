@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY CARA ADMIN - Orders</title>
+    <link rel="icon" type="image/x-icon" href="img/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="logo">
+            <h2>MY CARA ADMIN</h2>
+            <i id="sidebar-close" class='bx bx-x'></i>
+        </div>
+        <ul class="side-menu">
+            <li><a href="index.html"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
+            <li><a href="products.html"><i class='bx bxs-shopping-bag'></i> Products</a></li>
+            <li><a href="orders.html" class="active"><i class='bx bxs-receipt'></i> Orders</a></li>
+            <li><a href="customers.html"><i class='bx bxs-user'></i> Customers</a></li>
+            <li><a href="blog.html"><i class='bx bxs-news'></i> Blog</a></li>
+            <li><a href="settings.html"><i class='bx bxs-cog'></i> Settings</a></li>
+        </ul>
+        <div class="logout">
+            <a href="https://my-cara.netlify.app/"><i class='bx bx-log-out'></i> Back to Store</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Top Header -->
+        <header id="admin-header">
+            <div class="header-left">
+                <i id="sidebar-toggle" class='bx bx-menu'></i>
+                <h3>Orders</h3>
+            </div>
+            <div class="header-right">
+                <div class="admin-profile">
+                    <img src="img/people/MJ.JPG" alt="Admin">
+                    <span>Admin User</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Orders Content -->
+        <div class="content">
+            <div class="content-header">
+                <div class="search-bar">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search orders.">
+                </div>
+                <div class="filters">
+                    <select>
+                        <option>All Status</option>
+                        <option>Pending</option>
+                        <option>Processing</option>
+                        <option>Shipped</option>
+                        <option>Delivered</option>
+                        <option>Cancelled</option>
+                    </select>
+                    <input type="date" placeholder="Select date">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>
+                                <div class="customer-info">
+                                    <img src="img/people/MJ.JPG" alt="Customer">
+                                    <div>
+                                        <p>Aghara Mitul</p>
+                                        <span>aghara@gmail.com</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>15 Jan 2025</td>
+                            <td>₹5,499</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view"><i class='bx bx-show'></i></button>
+                                    <button class="btn-edit"><i class='bx bx-edit'></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-002</td>
+                            <td>
+                                <div class="customer-info">
+                                    <img src="img/people/Miza.JPG" alt="Customer">
+                                    <div>
+                                        <p>Miza Aghara</p>
+                                        <span>sarah@example.com</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>14 Jan 2025</td>
+                            <td>₹3,299</td>
+                            <td><span class="status shipped">Shipped</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view"><i class='bx bx-show'></i></button>
+                                    <button class="btn-edit"><i class='bx bx-edit'></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-003</td>
+                            <td>
+                                <div class="customer-info">
+                                    <img src="img/people/Jency.JPG" alt="Customer">
+                                    <div>
+                                        <p>Jency Aghara</p>
+                                        <span>jency.aghara@gmail.com</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>13 Jan 2025</td>
+                            <td>₹7,899</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-view"><i class='bx bx-show'></i></button>
+                                    <button class="btn-edit"><i class='bx bx-edit'></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link next"><i class='bx bx-chevron-right'></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
